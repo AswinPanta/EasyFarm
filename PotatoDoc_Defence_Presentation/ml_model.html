@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 0 60px;
+            flex: 1;
+            align-items: flex-start;
+        }
+        
+        .column-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .column-heading {
+            font-size: 18px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #00BCD4;
+            padding-bottom: 8px;
+        }
+        
+        .spec-item {
+            font-size: 14px;
+            color: #424242;
+            line-height: 1.6;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            color: #006064;
+        }
+        
+        .spec-value {
+            font-family: 'Courier Prime', monospace;
+            color: #00BCD4;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        
+        .dataset-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 10px;
+            background: #F5F5F5;
+            margin-top: 8px;
+        }
+        
+        .dataset-class {
+            font-size: 13px;
+            color: #424242;
+            font-weight: 500;
+        }
+        
+        .dataset-count {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            color: #006064;
+            font-weight: 700;
+            text-align: right;
+        }
+        
+        .total-box {
+            padding: 12px;
+            background: #E0F2F1;
+            border-left: 3px solid #006064;
+            margin-top: 12px;
+        }
+        
+        .total-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #006064;
+        }
+        
+        .total-value {
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Deep Learning Model: MobileNetV2</div>
+        
+        <div class="content-wrapper">
+            <!-- Architecture Column -->
+            <div class="column-section">
+                <div class="column-heading">Model Architecture</div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Base Model:</span><br>
+                    <span class="spec-value">MobileNetV2</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Pre-training:</span><br>
+                    <span class="spec-value">ImageNet</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Input Size:</span><br>
+                    <span class="spec-value">224×224×3</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Output Classes:</span><br>
+                    <span class="spec-value">3</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Classes:</span><br>
+                    Early Blight, Healthy, Late Blight
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Parameters:</span><br>
+                    <span class="spec-value">3.54M</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Format:</span><br>
+                    <span class="spec-value">ONNX (9.87 MB)</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Inference:</span><br>
+                    <span class="spec-value">~50ms (CPU)</span>
+                </div>
+            </div>
+            
+            <!-- Training Configuration Column -->
+            <div class="column-section">
+                <div class="column-heading">Training Configuration</div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Optimizer:</span><br>
+                    <span class="spec-value">Adam</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Learning Rate:</span><br>
+                    Phase 1: <span class="spec-value">0.001</span><br>
+                    Phase 2: <span class="spec-value">0.0001</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Batch Size:</span><br>
+                    <span class="spec-value">32</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Loss Function:</span><br>
+                    <span class="spec-value">Categorical Crossentropy</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Epochs:</span><br>
+                    <span class="spec-value">30</span> (early stopped)
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Augmentation:</span><br>
+                    Rotation, zoom, brightness, noise, crops
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Early Stopping:</span><br>
+                    <span class="spec-value">Patience: 5</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">ReduceLROnPlateau:</span><br>
+                    <span class="spec-value">Factor: 0.5</span>
+                </div>
+            </div>
+            
+            <!-- Dataset Column -->
+            <div class="column-section">
+                <div class="column-heading">Dataset Composition</div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Source:</span><br>
+                    <span class="spec-value">PlantVillage</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Institution:</span><br>
+                    Penn State University
+                </div>
+                
+                <div class="dataset-row">
+                    <div class="dataset-class">Early Blight</div>
+                    <div class="dataset-count">1,000</div>
+                </div>
+                
+                <div class="dataset-row">
+                    <div class="dataset-class">Late Blight</div>
+                    <div class="dataset-count">1,000</div>
+                </div>
+                
+                <div class="dataset-row">
+                    <div class="dataset-class">Healthy</div>
+                    <div class="dataset-count">152</div>
+                </div>
+                
+                <div class="total-box">
+                    <div class="total-label">Total Images:</div>
+                    <div class="total-value">2,152</div>
+                </div>
+                
+                <div class="spec-item" style="margin-top: 15px;">
+                    <span class="spec-label">Data Split:</span><br>
+                    Training: <span class="spec-value">70%</span><br>
+                    Validation: <span class="spec-value">20%</span><br>
+                    Test: <span class="spec-value">10%</span>
+                </div>
+                
+                <div class="spec-item">
+                    <span class="spec-label">Image Format:</span><br>
+                    JPG / PNG
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">5</div>
+    </div>
+</body>
+</html>

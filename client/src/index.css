@@ -1,0 +1,371 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Agricultural Color Palette */
+  /* Deep Forest Green - primary brand */
+  --color-forest:         oklch(0.32 0.10 145);
+  --color-forest-light:   oklch(0.42 0.12 145);
+  --color-forest-dark:    oklch(0.22 0.08 145);
+  /* Action Green - Healthy status */
+  --color-healthy:        oklch(0.52 0.18 145);
+  --color-healthy-light:  oklch(0.92 0.08 145);
+  --color-healthy-bg:     oklch(0.96 0.04 145);
+  /* Amber/Yellow - Early Blight warning */
+  --color-warning-agri:   oklch(0.72 0.18 75);
+  --color-warning-light:  oklch(0.94 0.08 75);
+  --color-warning-bg:     oklch(0.97 0.04 75);
+  /* Rust Red - Late Blight critical */
+  --color-critical:       oklch(0.50 0.22 25);
+  --color-critical-light: oklch(0.92 0.10 25);
+  --color-critical-bg:    oklch(0.97 0.04 25);
+  /* Sky Blue - Info/sync */
+  --color-info:           oklch(0.60 0.15 240);
+  --color-info-light:     oklch(0.93 0.06 240);
+  --color-info-bg:        oklch(0.97 0.03 240);
+
+  /* Shadcn tokens mapped to agricultural palette */
+  --primary: oklch(0.32 0.10 145);
+  --primary-foreground: oklch(0.97 0.01 80);
+  --sidebar-primary: oklch(0.32 0.10 145);
+  --sidebar-primary-foreground: oklch(0.97 0.01 80);
+  --chart-1: oklch(0.52 0.18 145);
+  --chart-2: oklch(0.72 0.18 75);
+  --chart-3: oklch(0.50 0.22 25);
+  --chart-4: oklch(0.60 0.15 240);
+  --chart-5: oklch(0.42 0.12 145);
+  --radius: 0.75rem;
+  /* Earthy Beige background - reduces halo in sunlight */
+  --background: oklch(0.97 0.01 80);
+  --foreground: oklch(0.18 0.02 250);
+  --card: oklch(0.99 0.005 80);
+  --card-foreground: oklch(0.18 0.02 250);
+  --popover: oklch(0.99 0.005 80);
+  --popover-foreground: oklch(0.18 0.02 250);
+  --secondary: oklch(0.94 0.015 80);
+  --secondary-foreground: oklch(0.18 0.02 250);
+  --muted: oklch(0.94 0.015 80);
+  --muted-foreground: oklch(0.55 0.02 250);
+  --accent: oklch(0.42 0.12 145);
+  --accent-foreground: oklch(0.97 0.01 80);
+  --destructive: oklch(0.50 0.22 25);
+  --destructive-foreground: oklch(0.97 0.01 80);
+  --border: oklch(0.85 0.01 80);
+  --input: oklch(0.85 0.01 80);
+  --ring: oklch(0.32 0.10 145);
+  --sidebar: oklch(0.99 0.005 80);
+  --sidebar-foreground: oklch(0.18 0.02 250);
+  --sidebar-accent: oklch(0.94 0.015 80);
+  --sidebar-accent-foreground: oklch(0.18 0.02 250);
+  --sidebar-border: oklch(0.85 0.01 80);
+  --sidebar-ring: oklch(0.32 0.10 145);
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+/* ── High-Contrast Mode (outdoor/sunlight use, 7:1+ contrast ratio) ─────────── */
+.high-contrast {
+  --foreground:           oklch(0.02 0.01 250) !important;
+  --background:           oklch(1.0 0 0) !important;
+  --card:                 oklch(1.0 0 0) !important;
+  --card-foreground:      oklch(0.02 0.01 250) !important;
+  --muted-foreground:     oklch(0.20 0.01 250) !important;
+  --border:               oklch(0.30 0.03 250) !important;
+  --secondary:            oklch(0.93 0 0) !important;
+  --color-healthy:        oklch(0.28 0.20 145) !important;
+  --color-healthy-bg:     oklch(0.93 0.05 145) !important;
+  --color-warning-agri:   oklch(0.42 0.22 75)  !important;
+  --color-warning-bg:     oklch(0.95 0.06 75)  !important;
+  --color-critical:       oklch(0.30 0.25 25)  !important;
+  --color-critical-bg:    oklch(0.95 0.06 25)  !important;
+  --color-forest:         oklch(0.22 0.12 145) !important;
+  --primary:              oklch(0.22 0.12 145) !important;
+}
+.high-contrast * {
+  font-weight: 600 !important;
+}
+.high-contrast .agri-card {
+  border-width: 2px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+}
+.high-contrast .result-healthy,
+.high-contrast .result-warning,
+.high-contrast .result-critical {
+  border-width: 3px !important;
+}
+.high-contrast .bottom-nav {
+  border-top-width: 2px !important;
+  border-top-color: oklch(0.30 0.03 250) !important;
+}
+
+/* ── Agricultural Utility Classes ───────────────────────────────────────────── */
+.text-forest        { color: var(--color-forest); }
+.text-healthy       { color: var(--color-healthy); }
+.text-warning-agri  { color: var(--color-warning-agri); }
+.text-critical      { color: var(--color-critical); }
+.text-info-agri     { color: var(--color-info); }
+
+.bg-forest          { background-color: var(--color-forest); }
+.bg-forest-light    { background-color: var(--color-forest-light); }
+.bg-healthy-agri    { background-color: var(--color-healthy); }
+.bg-healthy-light   { background-color: var(--color-healthy-light); }
+.bg-healthy-bg      { background-color: var(--color-healthy-bg); }
+.bg-warning-agri    { background-color: var(--color-warning-agri); }
+.bg-warning-light   { background-color: var(--color-warning-light); }
+.bg-warning-bg      { background-color: var(--color-warning-bg); }
+.bg-critical-agri   { background-color: var(--color-critical); }
+.bg-critical-light  { background-color: var(--color-critical-light); }
+.bg-critical-bg     { background-color: var(--color-critical-bg); }
+.bg-info-agri       { background-color: var(--color-info); }
+.bg-info-light      { background-color: var(--color-info-light); }
+.bg-info-bg         { background-color: var(--color-info-bg); }
+
+.border-forest      { border-color: var(--color-forest); }
+.border-healthy     { border-color: var(--color-healthy); }
+.border-warning-agri { border-color: var(--color-warning-agri); }
+.border-critical    { border-color: var(--color-critical); }
+
+/* ── Component Styles ────────────────────────────────────────────────────────── */
+.agri-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px oklch(0.18 0.02 250 / 0.10);
+  padding: 1.25rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-forest);
+  color: oklch(0.97 0.01 80);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 48px;
+  transition: background 0.2s, transform 0.1s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-primary:hover  { background: var(--color-forest-light); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.upload-zone {
+  border: 2.5px dashed var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  background: var(--secondary);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.upload-zone:hover, .upload-zone.drag-over {
+  border-color: var(--color-forest);
+  background: var(--color-healthy-bg);
+}
+
+.result-healthy  { background: var(--color-healthy-bg);  border: 2px solid var(--color-healthy); }
+.result-warning  { background: var(--color-warning-bg);  border: 2px solid var(--color-warning-agri); }
+.result-critical { background: var(--color-critical-bg); border: 2px solid var(--color-critical); }
+
+.confidence-bar {
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--secondary);
+  overflow: hidden;
+}
+.confidence-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.8s ease;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0 max(0.5rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  box-shadow: 0 -2px 12px oklch(0.18 0.02 250 / 0.08);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem 1rem;
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  border-radius: var(--radius);
+  transition: color 0.2s;
+  min-width: 60px;
+}
+.nav-item.active { color: var(--color-forest); }
+.nav-item:hover  { color: var(--color-forest-light); }
+
+.page-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem 1rem 5.5rem;
+}
+@media (min-width: 768px) { .page-container { max-width: 720px; } }
+
+/* ── Animations ──────────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scanPulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.52 0.18 145 / 0.4); }
+  50%       { box-shadow: 0 0 0 12px oklch(0.52 0.18 145 / 0); }
+}
+.animate-fadeInUp   { animation: fadeInUp 0.5s ease forwards; }
+.animate-scan-pulse { animation: scanPulse 2s ease infinite; }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Statement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 60px;
+            padding: 0 60px;
+            flex: 1;
+            align-items: center;
+        }
+        
+        .image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .disease-image {
+            width: 400px;
+            height: 300px;
+            object-fit: contain;
+            border: 2px solid #00BCD4;
+        }
+        
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .problem-intro {
+            font-size: 16px;
+            color: #424242;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .bullet-point {
+            font-size: 16px;
+            color: #424242;
+            line-height: 1.6;
+            margin-left: 20px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .bullet-point:before {
+            content: "▸";
+            color: #00BCD4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .statistics-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #F5F5F5;
+            border-left: 4px solid #006064;
+        }
+        
+        .stat-item {
+            font-size: 15px;
+            color: #424242;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .stat-number {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: #006064;
+            font-size: 18px;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">The Challenge: Potato Diseases in Agriculture</div>
+        
+        <div class="content-wrapper">
+            <div class="image-section">
+                <img src="/home/ubuntu/upload/disease1.jpg" alt="Potato leaf disease" class="disease-image">
+            </div>
+            
+            <div class="text-section">
+                <div class="problem-intro">Early Blight and Late Blight are the most destructive potato diseases in South Asia.</div>
+                
+                <div class="bullet-point">Late Blight can destroy an entire crop in <strong>2–3 days</strong> in wet conditions</div>
+                
+                <div class="bullet-point">Farmers lack access to expert agronomists</div>
+                
+                <div class="bullet-point">Timely disease identification is critical but unavailable</div>
+                
+                <div class="bullet-point">Current solutions are expensive and inaccessible in rural areas</div>
+                
+                <div class="statistics-box">
+                    <div class="stat-item">
+                        <span class="stat-number">4th</span> largest food crop globally
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15–20%</span> annual crop loss due to diseases
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10,000+</span> farmers in Nepal affected annually
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">2</div>
+    </div>
+</body>
+</html>

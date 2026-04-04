@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposed Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 0 60px;
+            flex: 1;
+        }
+        
+        .features-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item {
+            font-size: 15px;
+            color: #424242;
+            line-height: 1.6;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-item:before {
+            content: "✓";
+            color: #00BCD4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .feature-label {
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .users-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .user-persona {
+            padding: 15px;
+            background: #F5F5F5;
+            border-left: 3px solid #00BCD4;
+        }
+        
+        .user-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 8px;
+        }
+        
+        .user-description {
+            font-size: 14px;
+            color: #424242;
+            line-height: 1.5;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">PotatoDoc: AI-Powered Disease Detection</div>
+        
+        <div class="content-wrapper">
+            <div class="features-section">
+                <div class="section-heading">Key Features</div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Instant Diagnosis</span> — Upload or capture leaf photo, get prediction in <1 second
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">High Accuracy</span> — 99%+ confidence on real-world field photos
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Bilingual Interface</span> — English + Nepali (नेपाली) for farmer accessibility
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Visual Guidance</span> — Animated lasso overlay shows exactly which parts to trim
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Offline Capability</span> — Works without internet, syncs when online
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Mobile-First</span> — Optimized for smartphones used in fields
+                </div>
+            </div>
+            
+            <div class="users-section">
+                <div class="section-heading">Target Users</div>
+                
+                <div class="user-persona">
+                    <div class="user-title">🌾 Potato Farmers</div>
+                    <div class="user-description">Early disease detection and treatment guidance for crop protection</div>
+                </div>
+                
+                <div class="user-persona">
+                    <div class="user-title">👨‍🌾 Extension Officers</div>
+                    <div class="user-description">Field diagnosis and farmer training for disease management</div>
+                </div>
+                
+                <div class="user-persona">
+                    <div class="user-title">🏪 Agro-Input Retailers</div>
+                    <div class="user-description">Recommend appropriate fungicides and treatment products</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">3</div>
+    </div>
+</body>
+</html>

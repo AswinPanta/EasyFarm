@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database & Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:25px}
+        .content-wrapper{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:0 60px;flex:1;align-items:flex-start}
+        .column-section{display:flex;flex-direction:column;gap:12px}
+        .column-heading{font-size:18px;font-weight:700;color:#006064;margin-bottom:12px;border-bottom:2px solid #00BCD4;padding-bottom:8px}
+        .schema-item{background:#F5F5F5;padding:12px;margin-bottom:10px;border-left:3px solid #00BCD4}
+        .table-name{font-size:14px;font-weight:700;color:#006064;margin-bottom:6px}
+        .table-field{font-size:13px;color:#424242;padding-left:15px;position:relative;margin-bottom:4px}
+        .table-field:before{content:"•";color:#00BCD4;position:absolute;left:0;font-weight:bold}
+        .feature-item{font-size:14px;color:#424242;line-height:1.6;padding-left:20px;position:relative;margin-bottom:10px}
+        .feature-item:before{content:"✓";color:#00BCD4;position:absolute;left:0;font-weight:bold;font-size:16px}
+        .feature-label{font-weight:700;color:#006064}
+        .privacy-box{background:#E8F5E9;border-left:4px solid #388E3C;padding:12px;margin-bottom:10px}
+        .privacy-item{font-size:13px;color:#424242;line-height:1.5;padding-left:15px;position:relative;margin-bottom:6px}
+        .privacy-item:before{content:"→";color:#388E3C;position:absolute;left:0;font-weight:bold}
+        .gdpr-note{background:#FFF3E0;border-left:4px solid #FF9800;padding:10px;margin-top:10px;font-size:13px;color:#424242}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Data Management & Security</div>
+        <div class="content-wrapper">
+            <div class="column-section">
+                <div class="column-heading">Database Schema</div>
+                <div class="schema-item">
+                    <div class="table-name">users</div>
+                    <div class="table-field">User profiles</div>
+                    <div class="table-field">Authentication</div>
+                    <div class="table-field">Roles & permissions</div>
+                </div>
+                <div class="schema-item">
+                    <div class="table-name">scans</div>
+                    <div class="table-field">Scan history</div>
+                    <div class="table-field">Predictions</div>
+                    <div class="table-field">Image references</div>
+                </div>
+                <div class="schema-item">
+                    <div class="table-name">model_metrics</div>
+                    <div class="table-field">Model evaluation</div>
+                    <div class="table-field">Performance data</div>
+                    <div class="table-field">Accuracy metrics</div>
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">Security Features</div>
+                <div class="feature-item">
+                    <span class="feature-label">HTTPS/TLS</span> — Encrypted data transmission
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">JWT Cookies</span> — Signed, httpOnly, secure
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">PostgreSQL SSL</span> — Database connection encrypted
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">S3 Access Controls</span> — Bucket policies enforced
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Input Validation</span> — Image type, size checks
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">CORS Protection</span> — Cross-origin requests controlled
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Rate Limiting</span> — API route protection
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">Data Privacy</div>
+                <div class="privacy-box">
+                    <div class="privacy-item">User scans stored securely in Supabase</div>
+                    <div class="privacy-item">Images uploaded to S3 with access controls</div>
+                    <div class="privacy-item">No data shared with third parties</div>
+                    <div class="privacy-item">User data isolated per account</div>
+                </div>
+                <div class="gdpr-note">
+                    <strong>GDPR Compliance:</strong><br>
+                    ✓ Data minimization<br>
+                    ✓ User consent<br>
+                    ✓ Right to deletion<br>
+                    ✓ Data portability
+                </div>
+            </div>
+        </div>
+        <div class="page-number">11</div>
+    </div>
+</body>
+</html>

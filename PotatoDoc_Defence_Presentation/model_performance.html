@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Performance & Validation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 25px;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 0 60px;
+            flex: 1;
+        }
+        
+        .section-heading {
+            font-size: 18px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 12px;
+        }
+        
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        
+        .metrics-table th {
+            background: #F5F5F5;
+            border: 1px solid #E0E0E0;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 700;
+            color: #006064;
+            font-size: 14px;
+        }
+        
+        .metrics-table td {
+            border: 1px solid #E0E0E0;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #424242;
+        }
+        
+        .metrics-table tr:nth-child(even) {
+            background: #FAFAFA;
+        }
+        
+        .metric-value {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: #006064;
+            font-size: 15px;
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .performance-card {
+            background: #F5F5F5;
+            border-left: 4px solid #00BCD4;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .performance-label {
+            font-size: 13px;
+            color: #424242;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .performance-value {
+            font-family: 'Courier Prime', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .performance-description {
+            font-size: 12px;
+            color: #666;
+            margin-top: 6px;
+        }
+        
+        .validation-section {
+            background: #F5F5F5;
+            border-left: 4px solid #006064;
+            padding: 15px;
+        }
+        
+        .validation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .validation-item:last-child {
+            border-bottom: none;
+        }
+        
+        .validation-photo {
+            flex: 1;
+            font-size: 14px;
+            color: #424242;
+        }
+        
+        .validation-result {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .confidence-value {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: #006064;
+            font-size: 15px;
+        }
+        
+        .checkmark {
+            color: #00BCD4;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Model Performance & Validation Results</div>
+        
+        <div class="content-wrapper">
+            <!-- Validation Metrics Section -->
+            <div>
+                <div class="section-heading">Validation Metrics</div>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Overall Accuracy</td>
+                            <td><span class="metric-value">99.07%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Macro F1-Score</td>
+                            <td><span class="metric-value">0.9906</span></td>
+                        </tr>
+                        <tr>
+                            <td>Early Blight Precision</td>
+                            <td><span class="metric-value">0.9923</span></td>
+                        </tr>
+                        <tr>
+                            <td>Late Blight Recall</td>
+                            <td><span class="metric-value">0.9933</span></td>
+                        </tr>
+                        <tr>
+                            <td>Healthy F1-Score</td>
+                            <td><span class="metric-value">0.9907</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Per-Class Performance Section -->
+            <div>
+                <div class="section-heading">Per-Class Performance</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-label">Early Blight</div>
+                        <div class="performance-value">98.5%</div>
+                        <div class="performance-description">Correctly classified (3 misclassifications)</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-label">Healthy</div>
+                        <div class="performance-value">100%</div>
+                        <div class="performance-description">Perfect classification</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-label">Late Blight</div>
+                        <div class="performance-value">99.0%</div>
+                        <div class="performance-description">Correctly classified (2 misclassifications)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Real-World Validation Section -->
+            <div>
+                <div class="section-heading">Real-World Field Photo Validation</div>
+                <div class="validation-section">
+                    <div class="validation-item">
+                        <div class="validation-photo">Field photo: Late Blight</div>
+                        <div class="validation-result">
+                            <span class="confidence-value">97.99%</span>
+                            <span class="checkmark">✓</span>
+                        </div>
+                    </div>
+                    <div class="validation-item">
+                        <div class="validation-photo">Field photo: Early Blight</div>
+                        <div class="validation-result">
+                            <span class="confidence-value">99.93%</span>
+                            <span class="checkmark">✓</span>
+                        </div>
+                    </div>
+                    <div class="validation-item">
+                        <div class="validation-photo">Field photo: Healthy</div>
+                        <div class="validation-result">
+                            <span class="confidence-value">98.47%</span>
+                            <span class="checkmark">✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">6</div>
+    </div>
+</body>
+</html>

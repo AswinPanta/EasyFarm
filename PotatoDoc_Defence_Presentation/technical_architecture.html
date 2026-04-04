@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 0 60px;
+            flex: 1;
+        }
+        
+        .architecture-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .section-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 10px;
+        }
+        
+        .architecture-diagram {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            color: #424242;
+            line-height: 1.8;
+            background: #F5F5F5;
+            padding: 20px;
+            border-left: 4px solid #00BCD4;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .tech-stack-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .tech-table thead {
+            background: #006064;
+            color: #FFFFFF;
+        }
+        
+        .tech-table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #006064;
+        }
+        
+        .tech-table td {
+            padding: 12px 15px;
+            border: 1px solid #E0E0E0;
+            color: #424242;
+        }
+        
+        .tech-table tbody tr:nth-child(odd) {
+            background: #FAFAFA;
+        }
+        
+        .tech-table tbody tr:nth-child(even) {
+            background: #FFFFFF;
+        }
+        
+        .tech-category {
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .tech-name {
+            font-family: 'Courier Prime', monospace;
+            color: #00BCD4;
+            font-weight: 600;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Technical Architecture & Technology Stack</div>
+        
+        <div class="content-wrapper">
+            <div class="architecture-section">
+                <div class="section-label">System Architecture</div>
+                <div class="architecture-diagram">Frontend (React 19 + Tailwind CSS)
+         ↓
+    tRPC API
+         ↓
+Backend (Express.js + Node.js)
+         ↓
+    ┌─────────────┬──────────────┬──────────────┐
+    ↓             ↓              ↓
+ONNX Runtime  Supabase       S3 Storage
+(Inference)   (Database)     (Images)</div>
+            </div>
+            
+            <div class="tech-stack-section">
+                <div class="section-label">Technology Stack</div>
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Technology</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tech-category">Frontend</span></td>
+                            <td><span class="tech-name">React 19</span>, Tailwind CSS 4, Vite</td>
+                            <td>Mobile-first UI, fast bundling</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">Backend</span></td>
+                            <td><span class="tech-name">Express.js</span>, tRPC, Node.js</td>
+                            <td>API routes, type-safe RPC</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">Database</span></td>
+                            <td><span class="tech-name">Supabase</span> PostgreSQL</td>
+                            <td>User data, scan history, metrics</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">Authentication</span></td>
+                            <td><span class="tech-name">Supabase Auth</span> + OAuth</td>
+                            <td>Email/password + social login</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">Storage</span></td>
+                            <td><span class="tech-name">S3</span> (Manus)</td>
+                            <td>Scan images, model files</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">ML Inference</span></td>
+                            <td><span class="tech-name">ONNX Runtime</span> (Node.js)</td>
+                            <td>Production disease prediction</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">Image Processing</span></td>
+                            <td><span class="tech-name">Sharp</span> (Node.js)</td>
+                            <td>Image resizing, normalization</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tech-category">Testing</span></td>
+                            <td><span class="tech-name">Vitest</span></td>
+                            <td>Unit tests, integration tests</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="page-number">4</div>
+    </div>
+</body>
+</html>

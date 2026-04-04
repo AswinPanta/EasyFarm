@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Region Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 0 60px;
+            flex: 1;
+            align-items: flex-start;
+        }
+        
+        .column-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .column-heading {
+            font-size: 18px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #00BCD4;
+            padding-bottom: 8px;
+        }
+        
+        .algorithm-step {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: #006064;
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .step-content {
+            flex: 1;
+            font-size: 14px;
+            color: #424242;
+            line-height: 1.5;
+        }
+        
+        .step-label {
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .feature-item {
+            font-size: 14px;
+            color: #424242;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item:before {
+            content: "•";
+            color: #00BCD4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .feature-label {
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .output-spec {
+            background: #F5F5F5;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #00BCD4;
+            font-size: 13px;
+        }
+        
+        .spec-label {
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 4px;
+        }
+        
+        .spec-value {
+            color: #424242;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Visual Disease Highlighting: Lasso Overlay</div>
+        
+        <div class="content-wrapper">
+            <!-- Algorithm Column -->
+            <div class="column-section">
+                <div class="column-heading">Algorithm Pipeline</div>
+                
+                <div class="algorithm-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <span class="step-label">RGB → HSL</span><br>
+                        Convert to Hue, Saturation, Lightness color space
+                    </div>
+                </div>
+                
+                <div class="algorithm-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <span class="step-label">Pixel Masking</span><br>
+                        Detect brown/dark spots using color thresholds
+                    </div>
+                </div>
+                
+                <div class="algorithm-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <span class="step-label">Connected Components</span><br>
+                        BFS flood fill to find disease regions
+                    </div>
+                </div>
+                
+                <div class="algorithm-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <span class="step-label">Polygon Fitting</span><br>
+                        Ellipse approximation around infected areas
+                    </div>
+                </div>
+                
+                <div class="algorithm-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <span class="step-label">Noise Filtering</span><br>
+                        Remove regions < 0.5% of image
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Visualization Column -->
+            <div class="column-section">
+                <div class="column-heading">Frontend Visualization</div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Animated Dotted Lasso</span> — Draws around infected regions
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Color-Coded Dots</span> — Amber (Early Blight), Red (Late Blight)
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Background Darkening</span> — 40% opacity to focus attention
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Bilingual Labels</span> — "Trim this area" / "यो भाग काट्नुहोस्"
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Region Count Badge</span> — Shows number of infected areas
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-label">Smooth Animation</span> — 2-second loop for visual engagement
+                </div>
+            </div>
+            
+            <!-- Output Column -->
+            <div class="column-section">
+                <div class="column-heading">Output Specifications</div>
+                
+                <div class="output-spec">
+                    <div class="spec-label">Max Regions</div>
+                    <div class="spec-value">Up to 6 largest regions per image</div>
+                </div>
+                
+                <div class="output-spec">
+                    <div class="spec-label">Coordinates</div>
+                    <div class="spec-value">Normalized (0–1) for responsive scaling</div>
+                </div>
+                
+                <div class="output-spec">
+                    <div class="spec-label">Area Percentage</div>
+                    <div class="spec-value">Calculated for each region</div>
+                </div>
+                
+                <div class="output-spec">
+                    <div class="spec-label">Shape Type</div>
+                    <div class="spec-value">Ellipse (x, y, width, height, rotation)</div>
+                </div>
+                
+                <div class="output-spec">
+                    <div class="spec-label">Disease Class</div>
+                    <div class="spec-value">Early Blight or Late Blight</div>
+                </div>
+                
+                <div class="output-spec">
+                    <div class="spec-label">JSON Format</div>
+                    <div class="spec-value">Structured for frontend rendering</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">7</div>
+    </div>
+</body>
+</html>

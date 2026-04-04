@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References & Acknowledgments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:25px}
+        .content-wrapper{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:0 60px;flex:1;align-items:flex-start}
+        .column-section{display:flex;flex-direction:column;gap:12px}
+        .column-heading{font-size:18px;font-weight:700;color:#006064;margin-bottom:12px;border-bottom:2px solid #00BCD4;padding-bottom:8px}
+        .item{font-size:13px;color:#424242;line-height:1.6;padding-left:20px;position:relative;margin-bottom:10px}
+        .item:before{content:"▸";color:#00BCD4;position:absolute;left:0;font-weight:bold;font-size:16px}
+        .item-label{font-weight:700;color:#006064}
+        .citation{font-size:12px;color:#666;font-style:italic;line-height:1.5}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">References & Acknowledgments</div>
+        <div class="content-wrapper">
+            <div class="column-section">
+                <div class="column-heading">📚 Key References</div>
+                <div class="item">
+                    <span class="item-label">PlantVillage Dataset</span><br>
+                    <span class="citation">Mohanty et al. (2016)</span>
+                </div>
+                <div class="item">
+                    <span class="item-label">MobileNetV2</span><br>
+                    <span class="citation">Sandler et al. (2018)</span>
+                </div>
+                <div class="item">
+                    <span class="item-label">ONNX Runtime</span><br>
+                    <span class="citation">https://onnxruntime.ai/</span>
+                </div>
+                <div class="item">
+                    <span class="item-label">TensorFlow/Keras</span><br>
+                    <span class="citation">https://www.tensorflow.org/</span>
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">🙏 Acknowledgments</div>
+                <div class="item">
+                    <span class="item-label">Gandaki University</span> — Platform and support
+                </div>
+                <div class="item">
+                    <span class="item-label">PlantVillage</span> — Open-source disease dataset
+                </div>
+                <div class="item">
+                    <span class="item-label">Open-Source Community</span> — ONNX, React, Express, Supabase
+                </div>
+                <div class="item">
+                    <span class="item-label">Manus Platform</span> — Managed hosting and deployment
+                </div>
+                <div class="item">
+                    <span class="item-label">Farmers</span> — Inspiring this solution
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">📊 Data Sources</div>
+                <div class="item">
+                    <span class="item-label">PlantVillage</span><br>
+                    2,152 potato leaf images<br>
+                    <span class="citation">Penn State University</span>
+                </div>
+                <div class="item">
+                    <span class="item-label">Real-World Field Photos</span><br>
+                    Validation on actual crops<br>
+                    <span class="citation">99%+ accuracy verified</span>
+                </div>
+                <div class="item">
+                    <span class="item-label">Agricultural Extension Literature</span><br>
+                    Disease identification guides<br>
+                    <span class="citation">Treatment recommendations</span>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">20</div>
+    </div>
+</body>
+</html>

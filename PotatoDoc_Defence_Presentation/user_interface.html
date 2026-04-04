@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Interface Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #006064;
+            padding-top: 40px;
+            padding-left: 60px;
+            margin-bottom: 25px;
+        }
+        
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 0 60px;
+            margin-bottom: 25px;
+        }
+        
+        .page-card {
+            background: #F5F5F5;
+            padding: 20px;
+            border-left: 3px solid #00BCD4;
+        }
+        
+        .page-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 12px;
+        }
+        
+        .page-feature {
+            font-size: 13px;
+            color: #424242;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .page-feature:before {
+            content: "•";
+            color: #00BCD4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .features-section {
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            flex: 1;
+        }
+        
+        .feature-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .section-heading {
+            font-size: 18px;
+            font-weight: 700;
+            color: #006064;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item {
+            font-size: 14px;
+            color: #424242;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .feature-item:before {
+            content: "✓";
+            color: #00BCD4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .feature-label {
+            font-weight: 700;
+            color: #006064;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #424242;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">User Interface Features</div>
+        
+        <div class="pages-grid">
+            <div class="page-card">
+                <div class="page-title">📸 Scanner Page</div>
+                <div class="page-feature">Camera capture</div>
+                <div class="page-feature">File upload</div>
+                <div class="page-feature">Image preview</div>
+                <div class="page-feature">Real-time prediction</div>
+            </div>
+            
+            <div class="page-card">
+                <div class="page-title">🎯 Disease Result</div>
+                <div class="page-feature">Color-coded design</div>
+                <div class="page-feature">Confidence scores</div>
+                <div class="page-feature">Treatment steps</div>
+                <div class="page-feature">Save to history</div>
+            </div>
+            
+            <div class="page-card">
+                <div class="page-title">📋 Scan History</div>
+                <div class="page-feature">Thumbnail grid</div>
+                <div class="page-feature">Filter by disease</div>
+                <div class="page-feature">Delete scans</div>
+                <div class="page-feature">Offline sync</div>
+            </div>
+            
+            <div class="page-card">
+                <div class="page-title">📊 Model Metrics</div>
+                <div class="page-feature">Accuracy display</div>
+                <div class="page-feature">Precision/Recall</div>
+                <div class="page-feature">Confusion matrix</div>
+                <div class="page-feature">Training curves</div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <div class="feature-column">
+                <div class="section-heading">🌍 Bilingual Support</div>
+                <div class="feature-item">
+                    <span class="feature-label">English</span> — Default interface language
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Nepali (नेपाली)</span> — Complete translation
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Language Toggle</span> — Easy switching in header
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Persistent Preference</span> — Saved in local storage
+                </div>
+            </div>
+            
+            <div class="feature-column">
+                <div class="section-heading">♿ Accessibility Features</div>
+                <div class="feature-item">
+                    <span class="feature-label">High-Contrast Mode</span> — 7:1 WCAG AA compliant
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Larger Text</span> — 16px+ for outdoor readability
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Responsive Design</span> — All screen sizes supported
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Offline Indicators</span> — Shows sync status
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">8</div>
+    </div>
+</body>
+</html>

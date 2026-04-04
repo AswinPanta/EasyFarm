@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing & Quality Assurance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:25px}
+        .content-wrapper{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:0 60px;flex:1;align-items:flex-start}
+        .column-section{display:flex;flex-direction:column;gap:12px}
+        .column-heading{font-size:18px;font-weight:700;color:#006064;margin-bottom:12px;border-bottom:2px solid #00BCD4;padding-bottom:8px}
+        .coverage-box{background:#E8F5E9;border-left:4px solid #388E3C;padding:15px;text-align:center}
+        .coverage-number{font-family:'Courier Prime',monospace;font-size:36px;font-weight:700;color:#1B5E20;margin-bottom:8px}
+        .coverage-label{font-size:14px;color:#424242;font-weight:600}
+        .test-item{font-size:14px;color:#424242;line-height:1.6;padding-left:20px;position:relative;margin-bottom:10px}
+        .test-item:before{content:"✓";color:#00BCD4;position:absolute;left:0;font-weight:bold;font-size:16px}
+        .test-label{font-weight:700;color:#006064}
+        .metrics-table{width:100%;border-collapse:collapse;font-size:13px}
+        .metrics-table th{background:#F5F5F5;border:1px solid #E0E0E0;padding:10px 8px;text-align:left;font-weight:700;color:#006064}
+        .metrics-table td{border:1px solid #E0E0E0;padding:10px 8px;color:#424242}
+        .metrics-table tr:nth-child(even){background:#FAFAFA}
+        .metric-value{font-family:'Courier Prime',monospace;font-weight:700;color:#006064;font-size:14px}
+        .status-pass{color:#388E3C;font-weight:700}
+        .status-exceed{color:#1B5E20;font-weight:700}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Testing & Quality Assurance</div>
+        <div class="content-wrapper">
+            <div class="column-section">
+                <div class="column-heading">Test Coverage</div>
+                <div class="coverage-box">
+                    <div class="coverage-number">12/12</div>
+                    <div class="coverage-label">Tests Passing</div>
+                </div>
+                <div style="background:#E0F2F1;border-left:4px solid #006064;padding:12px;margin-top:10px">
+                    <div style="font-size:14px;font-weight:700;color:#006064;margin-bottom:6px">Framework</div>
+                    <div style="font-size:13px;color:#424242">Vitest</div>
+                </div>
+                <div style="background:#E0F2F1;border-left:4px solid #006064;padding:12px">
+                    <div style="font-size:14px;font-weight:700;color:#006064;margin-bottom:6px">Coverage</div>
+                    <div style="font-size:13px;color:#424242">100%</div>
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">Test Categories</div>
+                <div class="test-item">
+                    <span class="test-label">Environment</span> — Supabase credentials validated
+                </div>
+                <div class="test-item">
+                    <span class="test-label">Model Status</span> — ONNX model file existence
+                </div>
+                <div class="test-item">
+                    <span class="test-label">Inference Engine</span> — ONNX inference tested
+                </div>
+                <div class="test-item">
+                    <span class="test-label">Database</span> — Schema and query helpers
+                </div>
+                <div class="test-item">
+                    <span class="test-label">Authentication</span> — Session cookie handling
+                </div>
+                <div class="test-item">
+                    <span class="test-label">API Routes</span> — tRPC procedures callable
+                </div>
+                <div class="test-item">
+                    <span class="test-label">i18n</span> — Translation files present
+                </div>
+                <div class="test-item">
+                    <span class="test-label">Integration</span> — End-to-end workflows
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">Performance Metrics</div>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Target</th>
+                            <th>Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Model Accuracy</td>
+                            <td><span class="metric-value">>95%</span></td>
+                            <td><span class="metric-value status-exceed">99.07%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Inference Time</td>
+                            <td><span class="metric-value">&lt;200ms</span></td>
+                            <td><span class="metric-value status-exceed">~50ms</span></td>
+                        </tr>
+                        <tr>
+                            <td>API Response</td>
+                            <td><span class="metric-value">&lt;500ms</span></td>
+                            <td><span class="metric-value status-exceed">&lt;100ms</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bundle Size</td>
+                            <td><span class="metric-value">&lt;1MB</span></td>
+                            <td><span class="metric-value status-exceed">~450KB</span></td>
+                        </tr>
+                        <tr>
+                            <td>Test Coverage</td>
+                            <td><span class="metric-value">>80%</span></td>
+                            <td><span class="metric-value status-exceed">100%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="page-number">10</div>
+    </div>
+</body>
+</html>

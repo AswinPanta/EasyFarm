@@ -1,0 +1,104 @@
+{
+  "slides": [
+    {
+      "id": "title_slide",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "problem_statement",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "proposed_solution",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "technical_architecture",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "ml_model",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "model_performance",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "user_interface",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "disease_detection",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "production_deployment",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "testing_qa",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "database_security",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "achievements",
+      "state": "edited",
+      "pageNum": 12
+    },
+    {
+      "id": "impact_applications",
+      "state": "edited",
+      "pageNum": 13
+    },
+    {
+      "id": "challenges_solutions",
+      "state": "edited",
+      "pageNum": 14
+    },
+    {
+      "id": "future_roadmap",
+      "state": "edited",
+      "pageNum": 15
+    },
+    {
+      "id": "lessons_learned",
+      "state": "edited",
+      "pageNum": 16
+    },
+    {
+      "id": "conclusion",
+      "state": "edited",
+      "pageNum": 17
+    },
+    {
+      "id": "questions",
+      "state": "edited",
+      "pageNum": 18
+    },
+    {
+      "id": "appendix_technical",
+      "state": "edited",
+      "pageNum": 19
+    },
+    {
+      "id": "references",
+      "state": "edited",
+      "pageNum": 20
+    }
+  ]
+}

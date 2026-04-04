@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges & Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:25px}
+        .content-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:0 60px;flex:1}
+        .challenge-card{display:flex;flex-direction:column;gap:12px}
+        .challenge-number{font-size:14px;font-weight:700;color:#006064;margin-bottom:8px}
+        .problem-box{background:#FFEBEE;border-left:4px solid #D32F2F;padding:12px;margin-bottom:10px}
+        .problem-label{font-size:13px;font-weight:700;color:#B71C1C;margin-bottom:6px}
+        .problem-text{font-size:13px;color:#424242;line-height:1.5}
+        .solution-box{background:#E8F5E9;border-left:4px solid #388E3C;padding:12px;margin-bottom:10px}
+        .solution-label{font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:6px}
+        .solution-text{font-size:13px;color:#424242;line-height:1.5}
+        .result-box{background:#E0F2F1;border-left:4px solid #006064;padding:10px}
+        .result-label{font-size:13px;font-weight:700;color:#004D40;margin-bottom:4px}
+        .result-text{font-size:13px;color:#424242;line-height:1.5}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Overcoming Technical Challenges</div>
+        <div class="content-wrapper">
+            <div class="challenge-card">
+                <div class="challenge-number">Challenge 1: Model Generalization</div>
+                <div class="problem-box">
+                    <div class="problem-label">❌ Problem</div>
+                    <div class="problem-text">Custom CNN trained only on lab images failed on real-world photos</div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-label">✓ Solution</div>
+                    <div class="solution-text">MobileNetV2 transfer learning + heavy augmentation (rotation, zoom, brightness, noise)</div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label">📊 Result</div>
+                    <div class="result-text">99%+ accuracy on field photos, validated on real crops</div>
+                </div>
+            </div>
+            <div class="challenge-card">
+                <div class="challenge-number">Challenge 2: Production Deployment</div>
+                <div class="problem-box">
+                    <div class="problem-label">❌ Problem</div>
+                    <div class="problem-text">Python not available in production container (/usr/bin/python3.11: not found)</div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-label">✓ Solution</div>
+                    <div class="solution-text">Migrated to pure Node.js ONNX Runtime (onnxruntime-node + sharp)</div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label">📊 Result</div>
+                    <div class="result-text">Production-ready, no Python dependency, ~50ms inference</div>
+                </div>
+            </div>
+            <div class="challenge-card">
+                <div class="challenge-number">Challenge 3: Disease Region Detection</div>
+                <div class="problem-box">
+                    <div class="problem-label">❌ Problem</div>
+                    <div class="problem-text">Identifying exactly which parts of leaf are infected for visual guidance</div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-label">✓ Solution</div>
+                    <div class="solution-text">HSL color segmentation + BFS flood fill + ellipse polygon fitting</div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label">📊 Result</div>
+                    <div class="result-text">Accurate region highlighting with animated lasso overlay</div>
+                </div>
+            </div>
+            <div class="challenge-card">
+                <div class="challenge-number">Challenge 4: Farmer Accessibility</div>
+                <div class="problem-box">
+                    <div class="problem-label">❌ Problem</div>
+                    <div class="problem-text">Complex UI not suitable for rural farmers with limited tech experience</div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-label">✓ Solution</div>
+                    <div class="solution-text">Bilingual interface (English/Nepali), high-contrast mode (7:1), simple workflow</div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label">📊 Result</div>
+                    <div class="result-text">Farmer-friendly app, WCAG AA compliant, accessible outdoors</div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">14</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons Learned</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:25px}
+        .content-wrapper{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:0 60px;flex:1;align-items:flex-start}
+        .column-section{display:flex;flex-direction:column;gap:12px}
+        .column-heading{font-size:18px;font-weight:700;color:#006064;margin-bottom:12px;border-bottom:2px solid #00BCD4;padding-bottom:8px}
+        .lesson-item{font-size:14px;color:#424242;line-height:1.6;padding-left:20px;position:relative;margin-bottom:10px}
+        .lesson-item:before{content:"▸";color:#00BCD4;position:absolute;left:0;font-weight:bold;font-size:16px}
+        .lesson-label{font-weight:700;color:#006064}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Key Insights & Lessons Learned</div>
+        <div class="content-wrapper">
+            <div class="column-section">
+                <div class="column-heading">🔬 Technical Lessons</div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Transfer Learning Works</span> — Pre-trained models generalize better than custom CNNs
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Data Augmentation is Critical</span> — Heavy augmentation bridges lab-to-field gap
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Production Constraints Matter</span> — Design for deployment environment from start
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Testing is Essential</span> — Comprehensive tests catch issues early
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">📊 Project Management</div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Documentation Matters</span> — Clear docs enable faster onboarding
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Iterative Development</span> — Build, test, iterate approach works well
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">User-Centric Design</span> — Bilingual + high-contrast features were crucial
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Cross-Functional Skills</span> — ML + web dev + UX all needed
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">💼 Business Insights</div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Real-World Data is Messy</span> — Lab datasets don't match field conditions
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Farmer Needs Drive Design</span> — Accessibility > fancy features
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Scalability Requires Planning</span> — Design for 10x growth from start
+                </div>
+                <div class="lesson-item">
+                    <span class="lesson-label">Open-Source Tools Enable Innovation</span> — ONNX, Supabase, React accelerated development
+                </div>
+            </div>
+        </div>
+        <div class="page-number">16</div>
+    </div>
+</body>
+</html>

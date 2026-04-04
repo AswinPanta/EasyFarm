@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Deployment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:18px}
+        .content-wrapper{display:flex;flex-direction:column;gap:12px;padding:0 48px;flex:1}
+        .challenge-section{background:#FFF3E0;border-left:4px solid #FF9800;padding:8px}
+        .section-heading{font-size:16px;font-weight:700;color:#E65100;margin-bottom:6px}
+        .challenge-text{font-size:14px;color:#424242;line-height:1.6}
+        .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .comparison-box{padding:10px;border:2px solid #E0E0E0}
+        .comparison-title{font-size:16px;font-weight:700;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid #00BCD4}
+        .before-title{color:#D32F2F}
+        .after-title{color:#388E3C}
+        .flow-diagram{font-family:'Courier Prime',monospace;font-size:12px;color:#424242;line-height:1.4;background:#F5F5F5;padding:6px;margin-bottom:8px;white-space:pre;overflow-x:auto}
+        .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+        .benefit-card{background:#E8F5E9;border-left:3px solid #388E3C;padding:8px}
+        .benefit-icon{font-size:20px;margin-bottom:4px}
+        .benefit-title{font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:4px}
+        .benefit-desc{font-size:12px;color:#424242;line-height:1.4}
+        .deployment-section{background:#F5F5F5;border-left:4px solid #006064;padding:8px}
+        .deployment-heading{font-size:16px;font-weight:700;color:#006064;margin-bottom:8px}
+        .deployment-option{font-size:14px;color:#424242;margin-bottom:6px;padding-left:20px;position:relative}
+        .deployment-option:before{content:"→";color:#00BCD4;position:absolute;left:0;font-weight:bold}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">From Development to Production</div>
+        <div class="content-wrapper">
+            <div class="challenge-section">
+                <div class="section-heading">⚠️ The Challenge</div>
+                <div class="challenge-text">
+                    Initial Python-based inference failed in production. Production container had no Python/TensorFlow/OpenCV installed.
+                    <br><strong>Error:</strong> <code style="font-family:Courier Prime;background:#FFE0B2;padding:2px 4px">/usr/bin/python3.11: not found</code>
+                </div>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-box">
+                    <div class="comparison-title before-title">❌ Before (Python Subprocess)</div>
+                    <div class="flow-diagram">Image ↓ Python script ↓ TensorFlow ↓ JSON</div>
+                    <div style="font-size:13px;color:#424242;margin-top:8px">
+                        <strong>Requirements:</strong><br>
+                        • Python 3.11 • TensorFlow • OpenCV • Larger container
+                    </div>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-title after-title">✅ After (Node.js ONNX)</div>
+                    <div class="flow-diagram">Image ↓ Sharp resize ↓ ONNX Runtime ↓ JSON</div>
+                    <div style="font-size:13px;color:#424242;margin-top:8px">
+                        <strong>Requirements:</strong><br>
+                        • Node.js • onnxruntime-node • sharp • Smaller container
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div style="font-size:16px;font-weight:700;color:#006064;margin-bottom:10px">✨ Key Benefits</div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <div class="benefit-title">No Python Dependency</div>
+                        <div class="benefit-desc">Production-ready without Python interpreter</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-title">Faster Startup</div>
+                        <div class="benefit-desc">No interpreter overhead, instant inference</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📦</div>
+                        <div class="benefit-title">Smaller Container</div>
+                        <div class="benefit-desc">Reduced image size, faster deployment</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔄</div>
+                        <div class="benefit-title">Cross-Platform</div>
+                        <div class="benefit-desc">Works on any platform with Node.js</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-title">Same Accuracy</div>
+                        <div class="benefit-desc">99%+ accuracy maintained, ~50ms inference</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔧</div>
+                        <div class="benefit-title">Easy Maintenance</div>
+                        <div class="benefit-desc">Single language stack (Node.js)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="deployment-section">
+                <div class="deployment-heading">🌐 Deployment Options</div>
+                <div class="deployment-option"><strong>Manus Platform</strong> (Recommended) — One-click deployment with managed hosting</div>
+                <div class="deployment-option"><strong>Docker</strong> — Containerized deployment on any cloud</div>
+                <div class="deployment-option"><strong>Railway/Render/Vercel</strong> — Cloud platforms with Node.js support</div>
+            </div>
+        </div>
+        <div class="page-number">9</div>
+    </div>
+</body>
+</html>

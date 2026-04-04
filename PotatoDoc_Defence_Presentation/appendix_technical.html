@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix: Technical Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter',sans-serif;position:relative}
+        .slide-title{font-size:32px;font-weight:700;color:#006064;padding-top:40px;padding-left:60px;margin-bottom:25px}
+        .content-wrapper{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;padding:0 60px;flex:1;align-items:flex-start}
+        .column-section{display:flex;flex-direction:column;gap:12px}
+        .column-heading{font-size:18px;font-weight:700;color:#006064;margin-bottom:12px;border-bottom:2px solid #00BCD4;padding-bottom:8px}
+        .code-block{font-family:'Courier Prime',monospace;font-size:12px;color:#424242;line-height:1.6;background:#F5F5F5;padding:12px;border-left:3px solid #00BCD4;white-space:pre;overflow-x:auto}
+        .param-item{font-family:'Courier Prime',monospace;font-size:12px;color:#424242;line-height:1.6;background:#F5F5F5;padding:8px;margin-bottom:8px;border-left:3px solid #00BCD4}
+        .param-label{font-weight:700;color:#006064}
+        .param-value{color:#00BCD4}
+        .step-item{font-size:13px;color:#424242;line-height:1.6;padding-left:20px;position:relative;margin-bottom:10px}
+        .step-item:before{content:"→";color:#00BCD4;position:absolute;left:0;font-weight:bold}
+        .step-label{font-weight:700;color:#006064}
+        .page-number{position:absolute;bottom:20px;right:30px;font-size:14px;color:#424242;font-weight:500}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-title">Technical Deep Dive (Optional)</div>
+        <div class="content-wrapper">
+            <div class="column-section">
+                <div class="column-heading">🏗️ Model Architecture</div>
+                <div class="code-block">Input (224×224×3)
+  ↓
+MobileNetV2 Base
+├─ Depthwise Sep Conv
+├─ Residual Blocks
+└─ Global Avg Pool
+  ↓
+Dense (128, ReLU)
+  ↓
+Dropout (0.5)
+  ↓
+Output (3, Softmax)
+  ↓
+[Early Blight%,
+ Healthy%,
+ Late Blight%]</div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">⚙️ Training Hyperparameters</div>
+                <div class="param-item">
+                    <span class="param-label">Optimizer:</span> <span class="param-value">Adam</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">LR Phase 1:</span> <span class="param-value">0.001</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">LR Phase 2:</span> <span class="param-value">0.0001</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">Batch Size:</span> <span class="param-value">32</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">Loss:</span> <span class="param-value">CategoricalCrossEntropy</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">Epochs:</span> <span class="param-value">30</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">Early Stop:</span> <span class="param-value">Patience: 5</span>
+                </div>
+                <div class="param-item">
+                    <span class="param-label">ReduceLR:</span> <span class="param-value">Factor: 0.5</span>
+                </div>
+            </div>
+            <div class="column-section">
+                <div class="column-heading">🔄 Inference Pipeline</div>
+                <div class="step-item">
+                    <span class="step-label">Receive Image</span> — JPEG/PNG format
+                </div>
+                <div class="step-item">
+                    <span class="step-label">Resize</span> — 224×224 with Sharp
+                </div>
+                <div class="step-item">
+                    <span class="step-label">Normalize</span> — To [-1, 1] range
+                </div>
+                <div class="step-item">
+                    <span class="step-label">ONNX Inference</span> — ~50ms on CPU
+                </div>
+                <div class="step-item">
+                    <span class="step-label">Get Probabilities</span> — Softmax output
+                </div>
+                <div class="step-item">
+                    <span class="step-label">Detect Regions</span> — HSL segmentation
+                </div>
+                <div class="step-item">
+                    <span class="step-label">Return JSON</span> — Prediction + regions
+                </div>
+            </div>
+        </div>
+        <div class="page-number">19</div>
+    </div>
+</body>
+</html>
